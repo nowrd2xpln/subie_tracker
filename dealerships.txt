@@ -1,0 +1,48 @@
+Roseville,AutoNation Subaru Roseville,https://www.autonationsubaruroseville.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+San Jose,Capital Subaru,https://www.capitolsubarusj.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+San Jose,Stevens Creek Subaru,http://www.stevenscreeksubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Colma,Serramonte Subaru,http://www.serramontesubaru.com/used-inventory/index.htm?compositeType=&make=Subaru&model=Forester&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1
+Capitola,Subaru of Santa Cruz,https://www.santacruzsubaru.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&bodyStyle=&odometer=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-3
+Oakland,Downtown Subaru of Oakland,https://www.subaruofoakland.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Fremont,Premier Subaru of Fremont,https://www.premiersubaruoffremont.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Seaside,Cypress Coast Subaru,https://www.cypresscoastsubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Redwood City,Carlsen Subaru,https://www.carlsensubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Walnut Creek,Diablo Subaru of Walnut Creek,https://www.diablosubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Livermore,Livermore Subaru,https://www.livermoresubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Burlingame,Putnam Subaru,https://www.putnamsubaruofburlingame.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+San Rafael,Marin Subaru,https://www.marinsubaru.net/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Modesto,Modesto Subaru,https://www.modestosubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Livermore,Livermore Subaru,https://www.livermoresubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Napa,Hanlees Subaru,http://www.hanleesnapasubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Santa Rosa,Hansel Subaru,https://www.hanselsubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Fairfield,Fairfield Subaru,http://www.fairfieldsubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Elk Grove,Elk Grove Subaru,http://www.elkgrovesubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Fresno,Lithia Subaru of Fresno,https://www.lithiasubarufresno.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Sonora,Subaru of Sonora,https://www.subaruofsonora.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Sacramento,Maita Subaru,https://www.maitasubaru.com/used-inventory/index.htm?saveFacetState=true&compositeType=&make=Subaru&model=Forester&sortBy=internetPrice+asc&lastFacetInteracted=inventory-listing1-facet-anchor-model-1
+Shingle Springs,Shingle Springs Subaru,https://www.shinglespringssubaru.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&bodyStyle=&odometer=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-2
+Auburn,Gold Rush Subaru,https://www.goldrushsubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Chico,Courtesy Subaru of Chico,https://www.chicosubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Redding,Redding Subaru,https://www.reddingsubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+San Luis Obispo,Rancho Grande Subaru,https://www.ranchograndesubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Bakersfield,Sangera Subaru,https://www.sangerasubaru.com/used-inventory/subaru.htm?model=Forester&sortBy=BLANK+asc&
+Van Nuys,Subaru Sherman Oaks,https://www.subarushermanoaks.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Santa Monica,Subaru Santa Monica,https://www.subarusantamonica.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Ventura,Kirby Subaru of Ventura,https://www.kirbysubaruofventura.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Lancaster,Subaru Antelope Valley,https://www.subaruantelopevalley.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Glendale,Subaru of Glendale,https://www.subaruofglendale.net/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Monrovia,Sierra Subaru of Monrovia,https://www.sierrasubaru.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&internetPrice=&sortBy=internetPrice+asc&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1
+City of Industry,Puente Hills Subaru,http://www.puentehillssubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Fullerton,Renick Subaru,https://www.renicksubaru.com/used-inventory/index.htm?saveFacetState=true&compositeType=&year=&make=Subaru&model=Forester&odometer=&internetPrice=&trim=&sortBy=internetPrice+asc&lastFacetInteracted=inventory-listing1-facet-anchor-model-1
+Santa Ana,Subaru Orange Coast,https://www.subaruorangecoast.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=odometer+asc&
+Lake Forest,Irvine Subaru,http://www.irvinesubaru.com/used-inventory/index.htm?model=Forester&sortBy=internetPrice+asc&
+Ontario,Subaru of Ontario,http://www.subaruofontario.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Riverside,DCH Subaru of Riverside,https://www.dchsubaruofriverside.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+San Bernadino,Subaru of San Bernadino,https://www.subaruofsanbernardino.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Temecula,John Hine Temecula Subaru,https://www.temeculasubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Cathedral City,Palm Springs Subaru,https://www.palmspringssubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Carlsbad,Bob Baker Subaru,https://www.sandiegosubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+San Diego,Kearny Mesa Subaru,https://www.kearnymesasubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+National City,Frank Subaru,https://www.franksubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Eureka,McCrea Subaru,https://www.mccreasubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&
+Chico,Courtesy Subaru of Chico,https://www.chicosubaru.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&

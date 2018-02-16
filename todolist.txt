@@ -1,0 +1,3 @@
+Fri Feb 16 12:38:44 STD 2018:Handle dealerships with no Foresters. Subaru Antelope Valley, Lancaster.
+Fri Feb 16 12:39:34 STD 2018:Evaluate sites that appear to have different format. Galpin Subaru.
+Fri Feb 16 12:40:00 STD 2018:Parse dealership text file and store in list.
