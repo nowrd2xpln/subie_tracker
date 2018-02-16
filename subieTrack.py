@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import re
 from mathematicians import simple_get
 from bs4 import BeautifulSoup
 
@@ -29,7 +30,12 @@ def get_used_subies(dealer):
                 if len(name) > 0:
                     if "Forester" in name:
                         names.append(name.strip())
+                        print(">>>")
                         print(name)
+                        print("<<<")
+                        match = re.search(r"\d{4}",name)
+                        if match:
+                            print("year:",match.group(0))
                         text_file.write(">%s<\n" % name)
 
                     if "Engine" in name:
