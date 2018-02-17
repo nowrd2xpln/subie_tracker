@@ -60,21 +60,22 @@ def get_used_subies(dealer):
                         text_file.write("***%s\n" % name)
                         attributes = name.split(",")
                         for item in attributes:
+                            print(item)
                             if "Transmission" in item:
                                 #print(item)
-                                match = re.search(r".+:[ ](\w+)", item)
+                                match = re.search(r".+:\s(.+)", item)
                                 if match:
                                     m = match.group(1)
                                     print("\t%s" % m)
                             if "Exterior Color" in item:
                                 #print(item)
-                                match = re.search(r".+:[ ](\w+)", item)
+                                match = re.search(r".+:\s(.+)", item)
                                 if match:
                                     m = match.group(1)
                                     print("\t%s" % m)
                             if "Interior Color" in item:
                                 #print(item)
-                                match = re.search(r".+:[ ](\w+)", item)
+                                match = re.search(r".+:\s(.+)", item)
                                 if match:
                                     m = match.group(1)
                                     print("\t%s" % m)
@@ -92,7 +93,7 @@ def get_used_subies(dealer):
                                     print("\t%s" % m)
                             if "VIN" in item:
                                 #print(item)
-                                match = re.search(r".+:[ ](\w+)", item)
+                                match = re.search(r".+:[ ](\w{17})", item)
                                 if match:
                                     m = match.group(1)
                                     print("\t%s" % m)
