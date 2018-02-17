@@ -4,6 +4,17 @@ import re
 from mathematicians import simple_get
 from bs4 import BeautifulSoup
 
+class Car:
+    make = ""
+    model = ""
+    year = 0
+    stockNum = ""
+    vin = ""
+    extColor = ""
+    intColor = ""
+    transmission = ""
+    salePrice = float(0)
+
 subie_dealer = {}
 
 def main():
@@ -33,15 +44,19 @@ def get_used_subies(dealer):
                         print(">>>")
                         print(name)
                         print("<<<")
-                        match = re.search(r"\d{4}",name)
+                        match = re.search(r"(\d{4})\s+(\w+)\s+(.+)*",name)
                         if match:
-                            print("year:",match.group(0))
+                            print("match:",match.group(0))
+                            print("year:",match.group(1))
+                            print("model:",match.group(2))
+                            print("remaining:",match.group(3))
+                            
                         text_file.write(">%s<\n" % name)
 
                     if "Engine" in name:
                         names.append(name.split(","))
                         text_file.write("***%s\n" % name)
-                        print(name.split(","))
+                        #print(name.split(","))
 
         return names
 
