@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import re
+import datetime
 from mathematicians import simple_get
 from bs4 import BeautifulSoup
 
@@ -14,7 +15,7 @@ class Car:
     extColor = ""
     intColor = ""
     transmission = ""
-    salePrice = float(0)
+    salePrice = ""
     mileage = 0
 
 subie_dealer = {}
@@ -26,6 +27,7 @@ car_list = list()
 def main():
     print('Get subies!')
     get_used_subies('capital')
+    get_used_subies('fremont')
     print('Dealer Count %d' % len(subie_dealer) )    
 
 def save_site(site):
@@ -33,7 +35,7 @@ def save_site(site):
     
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
-    response = simple_get(subie_dealer['fremont'])
+    response = simple_get(subie_dealer[dealer])
      
     save_site(response)
     
@@ -46,8 +48,20 @@ def get_used_subies(dealer):
         text_file = open("out.txt", "w")
         
         for li in html.select('li'):
+            text_file.write(">%s<\n" % li)
             for name in li.text.split('\n'):
                 if len(name) > 0:
+                    if "Now" in name:
+                        match = re.search(r"(\d\d,\d\d\d)",name)
+                        price = match.group(0).replace(',', '')
+                        car_list[carCount - 1].salePrice = price
+                        print("\tPrice:%s" % car_list[carCount - 1].salePrice)
+                        
+                    if "Sale Price" in name:
+                        print("MATCH:%s" %name)
+                    if "Price:" in name:
+                        print("Sale Price: %s" % name)
+
                     if "Forester" in name:
                         names.append(name.strip())
                         match = re.search(r"(\d{4})\s+(\w+)\s+(.+)*",name)
@@ -68,7 +82,6 @@ def get_used_subies(dealer):
                             print("\tmake:%s" % car_list[carCount -1].make)
                             print("\tmodel:%s" % car_list[carCount -1].model)
                             
-                        text_file.write(">%s<\n" % name)
 
                     if "Engine:" in name:
                         #print("New Car:%s\n" % name)
@@ -109,25 +122,30 @@ def get_used_subies(dealer):
                                 match = re.search(r".+:[ ](\w+)", item)
                                 if match:
                                     m = match.group(1)
-                                    print("\tStock #:%s" % m)
+                                    car_list[carCount - 1].stockNum = match.group(1)
+                                    print("\tModel Code:%s" % car_list[carCount - 1].stockNum)
                             if "Model Code" in item:
                                 #print(item)
                                 match = re.search(r".+:[ ](\w+)", item)
                                 if match:
                                     m = match.group(1)
-                                    print("\tModel Code:%s" % m)
+                                    car_list[carCount - 1].modelCode = match.group(1)
+                                    print("\tModel Code:%s" % car_list[carCount - 1].modelCode)
                             if "Mileage" in item:
                                 #print(item)
-                                match = re.search(r".+:[ ](\d+)", item)
+                                match = re.search(r".+:[ ](\d+,\d+)", item)
                                 if match:
                                     m = match.group(1)
                                     print("\tMileage:%s" % m)
+                                    car_list[carCount - 1].mileage = match.group(1)
+                                    print("\tInterior Color:%s" % car_list[carCount - 1].mileage)
                             if "VIN" in item:
                                 #print(item)
                                 match = re.search(r".+:[ ](\w{17})", item)
                                 if match:
                                     m = match.group(1)
-                                    print("\tVIN:%s" % m)
+                                    car_list[carCount - 1].vin = match.group(1)
+                                    print("\tInterior Color:%s" % car_list[carCount - 1].vin)
                     continue
                     print("************************************************************")
 
