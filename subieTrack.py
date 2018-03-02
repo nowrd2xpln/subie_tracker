@@ -18,24 +18,36 @@ class Car:
     salePrice = ""
     mileage = 0
 
-subie_dealer = {}
-subie_dealer['fremont'] = "https://www.premiersubaruoffremont.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
-subie_dealer['capital'] = "https://www.capitolsubarusj.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
+subieDealerAddr = {}
+subieDealerAddr['fremont'] = "https://www.premiersubaruoffremont.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
+subieDealerAddr['capital'] = "https://www.capitolsubarusj.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
+
+subieDealer = {}
 
 car_list = list()
 
 def main():
     print('Get subies!')
-    get_used_subies('capital')
     get_used_subies('fremont')
-    print('Dealer Count %d' % len(subie_dealer) )    
+    get_used_subies('capital')
+    print('Dealer Count %d' % len(subieDealerAddr) )    
+    
+    get_all_forester_list()
 
 def save_site(site):
     open('page.txt', 'wb').write(site)
-    
+   
+def get_all_forester_list():
+    print("Get all forester list")
+    for dealer in subieDealerAddr:
+        cnt = len(subieDealer[dealer])
+        print("%s: %d" % (dealer, cnt))
+        for car in subieDealer[dealer]:
+            print("\t%s" % car.salePrice)
+
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
-    response = simple_get(subie_dealer[dealer])
+    response = simple_get(subieDealerAddr[dealer])
      
     save_site(response)
     
@@ -47,20 +59,12 @@ def get_used_subies(dealer):
 
         text_file = open("out.txt", "w")
         
+        print("DEALER: %s" % dealer)
+
         for li in html.select('li'):
             text_file.write(">%s<\n" % li)
             for name in li.text.split('\n'):
                 if len(name) > 0:
-                    if "Now" in name:
-                        match = re.search(r"(\d\d,\d\d\d)",name)
-                        price = match.group(0).replace(',', '')
-                        car_list[carCount - 1].salePrice = price
-                        print("\tNow Price:%s" % car_list[carCount - 1].salePrice)
-                        
-                    if "Price:" in name:
-                        if "Kelley" not in name:
-                            print("Sale Price: %s" % name)
-
                     if "Forester" in name:
                         names.append(name.strip())
                         match = re.search(r"(\d{4})\s+(\w+)\s+(.+)*",name)
@@ -81,6 +85,19 @@ def get_used_subies(dealer):
                             print("\tmake:%s" % car_list[carCount -1].make)
                             print("\tmodel:%s" % car_list[carCount -1].model)
                             
+                    if "Now" in name:
+                        match = re.search(r"(\d\d,\d\d\d)",name)
+                        price = match.group(0).replace(',', '')
+                        car_list[carCount - 1].salePrice = price
+                        print("\tmatch:%s", name)
+                        print("\tNow Price:%s" % car_list[carCount - 1].salePrice)
+                        
+                    if "Sale Price:" in name:
+                        #if not any("Kelley" or "Retail" in name):
+                            match = re.search(r"(\d\d,\d\d\d)",name)
+                            price = match.group(0).replace(',', '')
+                            car_list[carCount - 1].salePrice = price
+                            print("\tSale Price:%s" % car_list[carCount - 1].salePrice)
 
                     if "Engine:" in name:
                         #print("New Car:%s\n" % name)
@@ -94,7 +111,7 @@ def get_used_subies(dealer):
                             if match:
                                 mileage = match.group(1)
                                 mileage = re.sub(',',"", mileage)
-                                #car_list[carCount - 1].extColor = match.group(1)
+                                car_list[carCount - 1].extColor = match.group(1)
                                 print("\tMileage:%s" % mileage)
                         
                         attributes = name.split(",")
@@ -144,6 +161,13 @@ def get_used_subies(dealer):
 
         print("Car Count %d" % carCount)
         print(len(car_list))
+
+        # Add carlist to 
+        #subieDealer[dealer] = list(car_list)
+        #subieDealer[dealer] = list(car_list)
+        subieDealer[dealer] = car_list[:]
+        del car_list[:]
+
         return names
 
     raise Exception('Error retrieving contents at {}'.format(url))
