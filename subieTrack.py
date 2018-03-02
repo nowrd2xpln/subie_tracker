@@ -39,11 +39,26 @@ def save_site(site):
    
 def get_all_forester_list():
     print("Get all forester list")
+
+    counter = 0
     for dealer in subieDealerAddr:
         cnt = len(subieDealer[dealer])
         print("%s: %d" % (dealer, cnt))
         for car in subieDealer[dealer]:
-            print("\t%s" % car.salePrice)
+            counter += 1
+            print("%d" % counter)
+            print("\tPrice:         %s" % car.salePrice)
+            print("\tMileage:       %s" % car.mileage)
+            print("\tMake:          %s" % car.make)
+            print("\tModel:         %s" % car.model)
+            print("\tModelCode:     %s" % car.modelCode)
+            print("\tYear:          %s" % car.year)
+            print("\tStockNumber:   %s" % car.stockNum)
+            print("\tVIN:           %s" % car.vin)
+            print("\tExteriorColor: %s" % car.extColor)
+            print("\tInteriorColor: %s" % car.intColor)
+            print("\tTransmission:  %s" % car.transmission)
+        counter = 0
 
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
