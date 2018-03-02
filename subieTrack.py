@@ -2,8 +2,10 @@
 
 import re
 import datetime
+import csv
 from mathematicians import simple_get
 from bs4 import BeautifulSoup
+from time import gmtime, strftime
 
 class Car:
     make = ""
@@ -59,7 +61,7 @@ def get_all_forester_list():
             print("\tInteriorColor: %s" % car.intColor)
             print("\tTransmission:  %s" % car.transmission)
         counter = 0
-
+    
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
     response = simple_get(subieDealerAddr[dealer])
