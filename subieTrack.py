@@ -2,6 +2,7 @@
 
 import re
 import datetime
+import time
 import csv
 from mathematicians import simple_get
 from bs4 import BeautifulSoup
@@ -35,6 +36,7 @@ def main():
     print('Dealer Count %d' % len(subieDealerAddr) )    
     
     get_all_forester_list()
+    dump_cars_to_csv()
 
 def save_site(site):
     open('page.txt', 'wb').write(site)
@@ -62,6 +64,17 @@ def get_all_forester_list():
             print("\tTransmission:  %s" % car.transmission)
         counter = 0
     
+def dump_cars_to_csv():
+    fname = './'
+    fname += time.strftime("%Y%m%d")
+    fname += '.csv'
+
+    with open(fname, "w", newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter=',')
+        for dealer in subieDealerAddr:
+            for car in subieDealer[dealer]:
+                writer.writerow((car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
+
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
     response = simple_get(subieDealerAddr[dealer])
@@ -128,8 +141,8 @@ def get_used_subies(dealer):
                             if match:
                                 mileage = match.group(1)
                                 mileage = re.sub(',',"", mileage)
-                                car_list[carCount - 1].extColor = match.group(1)
-                                print("\tMileage:%s" % mileage)
+                                car_list[carCount - 1].mileage = mileage
+                                print("\tMileage:%s" % car_list[carCount - 1].mileage) 
                         
                         attributes = name.split(",")
 
