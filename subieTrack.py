@@ -4,9 +4,16 @@ import re
 import datetime
 import time
 import csv
+import copy
 from mathematicians import simple_get
 from bs4 import BeautifulSoup
 from time import gmtime, strftime
+
+class Dealer(object):
+    def __init__(self):
+        location = ""
+        name = ""
+        url = ""
 
 class Car:
     make = ""
@@ -24,19 +31,41 @@ class Car:
 subieDealerAddr = {}
 subieDealerAddr['fremont'] = "https://www.premiersubaruoffremont.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
 subieDealerAddr['capital'] = "https://www.capitolsubarusj.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
-
+dealershipFile = "./dealerships.txt"
 subieDealer = {}
 
+dealer_list = []
 car_list = list()
 
 def main():
     print('Get subies!')
-    get_used_subies('fremont')
-    get_used_subies('capital')
-    print('Dealer Count %d' % len(subieDealerAddr) )    
+#    get_used_subies('fremont')
+#    get_used_subies('capital')
+#   print('Dealer Count %d' % len(subieDealerAddr) )    
     
-    get_all_forester_list()
-    dump_cars_to_csv()
+#    get_all_forester_list()
+#    dump_cars_to_csv()
+    get_dealership_list()
+
+def get_dealership_list():
+    fh = open(dealershipFile)
+    
+    dealershipList = fh.readlines()
+    dealer = Dealer() 
+    for line in dealershipList:
+        dealerItems = line.split(",")
+        dealer.location = dealerItems[0]
+        dealer.name = dealerItems[1]
+        dealer.url = dealerItems[2]
+        dealer_list.append(copy.deepcopy(dealer))
+        
+    print("dealer_list %d" % len(dealer_list))
+
+    for d in dealer_list:
+        print("%s\n\t%s\n\t%s" % (d.location, d.name, d.url))
+
+#   dsd = dict(line.split(",") for line in dealershipList)
+#   print(dsd)
 
 def save_site(site):
     open('page.txt', 'wb').write(site)
