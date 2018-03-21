@@ -14,6 +14,7 @@ class Dealer(object):
         location = ""
         name = ""
         url = ""
+        carlist = []
 
 class Car:
     make = ""
@@ -45,8 +46,16 @@ def main():
     
 #    get_all_forester_list()
 #    dump_cars_to_csv()
+
+    # Get Dealership list from file
     get_dealership_list()
 
+    # Get Forester list from dealerships
+    for d in dealer_list:
+        get_used_subies(d)
+
+    print("ENDGAME")
+ 
 def get_dealership_list():
     fh = open(dealershipFile)
     
@@ -63,9 +72,6 @@ def get_dealership_list():
 
     for d in dealer_list:
         print("%s\n\t%s\n\t%s" % (d.location, d.name, d.url))
-
-#   dsd = dict(line.split(",") for line in dealershipList)
-#   print(dsd)
 
 def save_site(site):
     open('page.txt', 'wb').write(site)
@@ -106,7 +112,8 @@ def dump_cars_to_csv():
 
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
-    response = simple_get(subieDealerAddr[dealer])
+    #response = simple_get(subieDealerAddr[dealer])
+    response = simple_get(dealer.url)
      
     save_site(response)
     
@@ -118,7 +125,7 @@ def get_used_subies(dealer):
 
         text_file = open("out.txt", "w")
         
-        print("DEALER: %s" % dealer)
+        print("DEALER: %s" % dealer.name)
 
         for li in html.select('li'):
             text_file.write(">%s<\n" % li)
@@ -224,7 +231,8 @@ def get_used_subies(dealer):
         # Add carlist to 
         #subieDealer[dealer] = list(car_list)
         #subieDealer[dealer] = list(car_list)
-        subieDealer[dealer] = car_list[:]
+        #subieDealer[dealer] = car_list[:]
+        dealer.carlist = car_list[:]
         del car_list[:]
 
         return names
