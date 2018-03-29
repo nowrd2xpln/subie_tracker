@@ -54,6 +54,8 @@ def main():
     for d in dealer_list:
         get_used_subies(d)
 
+    dump_cars_to_csv()
+
     print("ENDGAME")
  
 def get_dealership_list():
@@ -106,9 +108,13 @@ def dump_cars_to_csv():
 
     with open(fname, "w", newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
-        for dealer in subieDealerAddr:
-            for car in subieDealer[dealer]:
-                writer.writerow((car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
+        #for dealer in subieDealerAddr:
+        #    for car in subieDealer[dealer]:
+        #        writer.writerow((car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
+        writer.writerow(("Location","Name","Sale Price", "Mileage","Year","Make","Model","Model Code","Stock Number","VIN","Exterior Color","Interior Color","Transmission"))
+        for d in dealer_list:
+            for car in d.carlist:
+                writer.writerow((d.location,d.name,car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
 
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
@@ -133,7 +139,7 @@ def get_used_subies(dealer):
                 if len(name) > 0:
                     if "Forester" in name:
                         names.append(name.strip())
-                        match = re.search(r"(\d{4})\s+(\w+)\s+(.+)*",name)
+                        match = re.search(r"(\d{4})\s+(\w+)\s+(.+)*",name, re.UNICODE)
                         if match:
                             print("************************************************************")
                             carCount += 1
@@ -152,18 +158,32 @@ def get_used_subies(dealer):
                             print("\tmodel:%s" % car_list[carCount -1].model)
                             
                     if "Now" in name:
-                        match = re.search(r"(\d\d,\d\d\d)",name)
-                        price = match.group(0).replace(',', '')
+                        match = re.search(r"(\d?\d,\d\d\d)",name,re.UNICODE)
+                        if match:
+                            price = match.group(0).replace(',', '')
+                        else:
+                            price = "ERROR"
+
                         car_list[carCount - 1].salePrice = price
-                        print("\tmatch:%s", name)
                         print("\tNow Price:%s" % car_list[carCount - 1].salePrice)
                         
-                    if "Sale Price:" in name:
+                    if "Price:" in name:
+                        if "Sale Price:" in name:
                         #if not any("Kelley" or "Retail" in name):
                             match = re.search(r"(\d\d,\d\d\d)",name)
                             price = match.group(0).replace(',', '')
                             car_list[carCount - 1].salePrice = price
                             print("\tSale Price:%s" % car_list[carCount - 1].salePrice)
+                        else:
+                            match = re.search(r"(\d?\d,\d\d\d)",name)
+                            if match:
+                                price = match.group(0).replace(',', '')
+                                car_list[carCount - 1].salePrice = price
+                            else:
+                                car_list[carCount - 1].salePrice = name
+                                
+                            print("\tSale Price:%s" % car_list[carCount - 1].salePrice)
+                            
 
                     if "Engine:" in name:
                         #print("New Car:%s\n" % name)
