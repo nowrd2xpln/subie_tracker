@@ -53,8 +53,8 @@ def main():
     # Get Forester list from dealerships
     for d in dealer_list:
         get_used_subies(d)
-
-    dump_cars_to_csv()
+        break
+#    dump_cars_to_csv()
 
     print("ENDGAME")
  
@@ -133,131 +133,14 @@ def get_used_subies(dealer):
         
         print("DEALER: %s" % dealer.name)
 
-        for li in html.select('li'):
-            text_file.write(">%s<\n" % li)
-            for name in li.text.split('\n'):
-                if len(name) > 0:
-                    if "Forester" in name:
-                        names.append(name.strip())
-                        match = re.search(r"(\d{4})\s+(\w+)\s+(.+)*",name, re.UNICODE)
-                        if match:
-                            print("************************************************************")
-                            carCount += 1
-                            car_list.append(Car())
-                            car_list[carCount - 1].year = match.group(1)
-                            car_list[carCount - 1].make = match.group(2)
-                            car_list[carCount - 1].model = match.group(3)
-                            #print("\tyear:",match.group(1))
-                            #print("\tmake:",match.group(2))
-                            #print("\tremaining:",match.group(3))
-                            #print(car_list[carCount - 1].year)
-                            #print(car_list[carCount - 1].make)
-                            #print(car_list[carCount - 1].model)
-                            print("\tyear:%s" % car_list[carCount -1].year)
-                            print("\tmake:%s" % car_list[carCount -1].make)
-                            print("\tmodel:%s" % car_list[carCount -1].model)
-                            
-                    if "Now" in name:
-                        match = re.search(r"(\d?\d,\d\d\d)",name,re.UNICODE)
-                        if match:
-                            price = match.group(0).replace(',', '')
-                        else:
-                            price = "ERROR"
-
-                        car_list[carCount - 1].salePrice = price
-                        print("\tNow Price:%s" % car_list[carCount - 1].salePrice)
-                        
-                    if "Price:" in name:
-                        if "Sale Price:" in name:
-                        #if not any("Kelley" or "Retail" in name):
-                            match = re.search(r"(\d\d,\d\d\d)",name)
-                            price = match.group(0).replace(',', '')
-                            car_list[carCount - 1].salePrice = price
-                            print("\tSale Price:%s" % car_list[carCount - 1].salePrice)
-                        else:
-                            match = re.search(r"(\d?\d,\d\d\d)",name)
-                            if match:
-                                price = match.group(0).replace(',', '')
-                                car_list[carCount - 1].salePrice = price
-                            else:
-                                car_list[carCount - 1].salePrice = name
-                                
-                            print("\tSale Price:%s" % car_list[carCount - 1].salePrice)
-                            
-
-                    if "Engine:" in name:
-                        #print("New Car:%s\n" % name)
-                        
-                        names.append(name.split(","))
-                        text_file.write("***%s\n" % name)
-
-                        # Workaround to get mileage
-                        if "Mileage" in name:
-                            match = re.search(r"Mileage:\s(\d+,\d\d\d)", name)
-                            if match:
-                                mileage = match.group(1)
-                                mileage = re.sub(',',"", mileage)
-                                car_list[carCount - 1].mileage = mileage
-                                print("\tMileage:%s" % car_list[carCount - 1].mileage) 
-                        
-                        attributes = name.split(",")
-
-                        for item in attributes:
-                            #print(item)
-                            if "Transmission" in item:
-                                match = re.search(r".+:\s(.+)", item)
-                                if match:
-                                    m = match.group(1)
-                                    car_list[carCount - 1].transmission = match.group(1)
-                                    #print(car_list[carCount - 1].transmission)
-                                    print("\tTransmission:%s" % car_list[carCount - 1].transmission)
-                            if "Exterior Color" in item:
-                                match = re.search(r".+:\s(.+)", item)
-                                if match:
-                                    m = match.group(1)
-                                    car_list[carCount - 1].extColor = match.group(1)
-                                    print("\tExterior Color:%s" % car_list[carCount - 1].extColor)
-                            if "Interior Color" in item:
-                                match = re.search(r".+:\s(.+)", item)
-                                if match:
-                                    m = match.group(1)
-                                    #print("\t%s" % m)
-                                    car_list[carCount - 1].intColor = match.group(1)
-                                    print("\tInterior Color:%s" % car_list[carCount - 1].intColor)
-                            if "Stock #" in item:
-                                match = re.search(r".+:[ ](\w+)", item)
-                                if match:
-                                    m = match.group(1)
-                                    car_list[carCount - 1].stockNum = match.group(1)
-                                    print("\tStock #:%s" % car_list[carCount - 1].stockNum)
-                            if "Model Code" in item:
-                                match = re.search(r".+:[ ](\w+)", item)
-                                if match:
-                                    m = match.group(1)
-                                    car_list[carCount - 1].modelCode = match.group(1)
-                                    print("\tModel Code:%s" % car_list[carCount - 1].modelCode)
-                            if "VIN" in item:
-                                match = re.search(r".+:[ ](\w{17})", item)
-                                if match:
-                                    m = match.group(1)
-                                    car_list[carCount - 1].vin = match.group(1)
-                                    print("\tVIN:%s" % car_list[carCount - 1].vin)
-                    continue
-                    print("************************************************************")
-
-        print("Car Count %d" % carCount)
-        print(len(car_list))
-
-        # Add carlist to 
-        #subieDealer[dealer] = list(car_list)
-        #subieDealer[dealer] = list(car_list)
-        #subieDealer[dealer] = car_list[:]
-        dealer.carlist = car_list[:]
-        del car_list[:]
-
-        return names
-
-    raise Exception('Error retrieving contents at {}'.format(url))
+        
+        # pat = 'DDC.dataLayer\[\'vehicles\'\]'
+        for tag in html.select('script'):
+            #text_file.write(">%s<\n" % li)
+            if tag.text.find('function(DDC)') != -1:
+                print (">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                print (tag.text)
+                print ("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
  
 if __name__ == '__main__':
     main()
