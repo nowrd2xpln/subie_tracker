@@ -1,144 +1,295 @@
-<script type="text/javascript"> (function(DDC) {
-    DDC=DDC || {}
-    ;
-    DDC.dataLayer=DDC.dataLayer || {}
-    ;
-    DDC.dataLayer['client']= {}
-    ;
-    DDC.dataLayer['user']= {
-        "userPostalCode": "null", "userCity": "", "userCountry": "", "userRegion": "", "userTimezoneId": "", "userAreaCode": "", "userLatitude": "", "userLongitude": "", "userMetroCode": "", "sessionId": "mockSessionId"
-    }
-    ;
-    DDC.dataLayer['date']= {}
-    ;
-    DDC.dataLayer['site']= {
-        design: {
-            "variationId": "v9_OEM_SUBARU_0002_V1", "themekit": "BLUE_WHITE"
-        }
-        , features: {
-            drEnable: true, enableMyCars: true, enableMyCarsOnVLP: true, enableMyCarsOnVDP: true, enableSEOURLs: false, digitalRetailing: {
-                "enabled": true, "tools": {
-                    "trade": {
-                        "type": "default"
-                    }
-                    , "payment": {
-                        "type": "default"
-                    }
-                    , "prequal": {
-                        "type": "default"
-                    }
-                    , "finance": {
-                        "type": "default"
-                    }
-                    , "protect": {
-                        "type": "default"
-                    }
-                }
-            }
-            , promotions: {
-                "enabled": false
-            }
-        }
-        , franchises: [ "subaru"], profiles: [ "subaruprofile"], siteInfo: {
-            "dealerId": "puentehillssubarucityofindustrysoa", "domain": "puentehillssubaru.com", "siteProvider": "Dealertrack", "tier": "tier3"
-        }
-    }
-    ;
-    DDC.dataLayer.page=DDC.dataLayer.page || {}
-    DDC.dataLayer.page.queryFacets= {
-        "make": "Subaru", "model": "Forester",
-    }
-    , DDC.dataLayer.page.pageInfo= {
-        "pageId": "puentehillssubarucityofindustrysoa_SITEBUILDER_INVENTORY_LISTING_DEFAULT_AUTO_USED_V3_1", "pageName": "INVENTORY_LISTING_DEFAULT_AUTO_USED", "pagePath": "\x2Fused\x2Dinventory\x2Findex.htm", "pageUrl": "http\x3A\x2F\x2Fwww.puentehillssubaru.com\x2Fused\x2Dinventory\x2Findex.htm", "params": "model\x3DForester\x26sortBy\x3DinternetPrice\x20asc\x26make\x3DSubaru", "pageWidgets": ["v9.widgets.slideshow.default.v1", "v9.widgets.content.default.v1", "v9.widgets.inventory-listing.default.v2", "v9.widgets.content.default.v1", "v9.widgets.content.disclaimer.v1", "TemplateFragmentInclude", "v9.widgets.content.page-title.v1", "TemplateContent", "v9.widgets.include.velocity.v1", "TemplateFragmentInclude", "v9.widgets.design.css-switcher.v1", "TemplateFragmentInclude", "TemplateFragmentInclude", "TemplateFragmentInclude"], "isVlp": true, "isVdp": false, "isShowroomOverview": false, "hasLeadForm": false, "isConfirm": false
-    }
-    ;
-    DDC.dataLayer.page.attributes= {
-        "layoutType": (false) ? "mobile": "desktop", "locale": "en_US", // getting vehicle page results
-        "incentivesCountPerDetailsPage": "", "incentivesDetailCategory": "", "vehicleCountPerPage": "35", "vehicleCurrentPage": "1", "vehicleResultCount": "4", "vehicleListingPageSort": "internetPrice\x20asc", "vehicleListingPageViews": "1", "vehicleDetailsPageViews": "", "vehicleDetailsNewPageViews": "", "vehicleDetailsUsedPageViews": "", "specialsCategory": "",
-    }
-    ;
-    DDC.dataLayer['dealership']= {
-        "address1": "17801\x20E\x20Gale\x20Ave", "address2": "", "city": "City\x20of\x20Industry", "country": "US", "dealerCode":[ {
-            "autocheck": "5053944"
-        }
-        , {
-            "dealertrack-post": "puentehillssubarucit"
-        }
-        , {
-            "soa": "400106"
-        }
-        , {
-            "dtid": "9660"
-        }
-        , {
-            "soazone": "SOA_080_04_WST_LAX"
-        }
-        , {
-            "soadistrict": "SOA_080_04_WST_LAX_02"
-        }
-        , {
-            "dt-dr-profile": "puentehillssubarucit"
-        }
-        , {
-            "soaregion": "SOA_080_WST"
-        }
-        , {
-            "at-kbb": "65658179"
-        }
-        ], "dealershipName": "Puente\x20Hills\x20Subaru", "dealerContactFirstName": "", "dealerContactLastName": "", "postalCode": "91748", "stateProvince": "CA", "phone1": "\x28888\x29\x20450\x2D8814", "email": "john\x40puentehillssubaru.com", "website": "http\x3A\x2F\x2Fwww.puentehillssubaru.com"
-    }
-    ;
-    DDC.dataLayer['vehicles']=[ {
-        "accountId": "puentehillssubarucityofindustrysoa", "address": {
-            "address1": "17801 E Gale Ave", "address2": "", "city": "City of Industry", "postalCode": "91748", "state": "CA", "country": "US"
-        }
-        , "bodyStyle": "SUV", "certified": "false", "cityFuelEfficiency": "23", "classification": "primary", "driveLine": "AWD", "doors": "4 door", "engine": "4\x2DCylinder\x20DOHC\x2016V\x20Turbocharged\x20Intercooled", "exteriorColor": "Black", "features": [], "fuelType": "Gasoline", "highwayFuelEfficiency": "28", "interiorColor": "Black", "internetPrice": "21500", "inventoryType": "used", "make": "Subaru", "model": "Forester", "modelCode": "FFM", "modelYear": "2015", "msrp": "26991", "newOrUsed": "used", "odometer": "30407", "optionCodes": "", "packages": [], "status": "Live", "stockNumber": "P3450", "transmission": "Lineartronic\x20CVT", "trim": "2.0XT\x20Premium", "uuid": "5d056a420a0e0ae87f1e702543c8b409", "vin": "JF2SJGDC9FH552451"
-    }
-    , {
-        "accountId": "puentehillssubarucityofindustrysoa", "address": {
-            "address1": "17801 E Gale Ave", "address2": "", "city": "City of Industry", "postalCode": "91748", "state": "CA", "country": "US"
-        }
-        , "bodyStyle": "SUV", "certified": "true", "cityFuelEfficiency": "24", "classification": "primary", "driveLine": "AWD", "doors": "4 door", "engine": "4\x2DCylinder\x20DOHC\x2016V\x20VVT", "exteriorColor": "White", "features": [], "fuelType": "Gasoline", "highwayFuelEfficiency": "32", "interiorColor": "Gray", "internetPrice": "21988", "inventoryType": "used", "make": "Subaru", "model": "Forester", "modelCode": "FFF", "modelYear": "2015", "msrp": "24991", "newOrUsed": "used", "odometer": "33895", "optionCodes": "", "packages": [], "status": "Live", "stockNumber": "P3475", "transmission": "Lineartronic\x20CVT", "trim": "2.5i\x20Premium", "uuid": "71a4924e0a0e0a170ad749958ead118e", "vin": "JF2SJADC6FH569690"
-    }
-    , {
-        "accountId": "puentehillssubarucityofindustrysoa", "address": {
-            "address1": "17801 E Gale Ave", "address2": "", "city": "City of Industry", "postalCode": "91748", "state": "CA", "country": "US"
-        }
-        , "bodyStyle": "SUV", "certified": "true", "cityFuelEfficiency": "26", "classification": "primary", "driveLine": "AWD", "doors": "4 door", "engine": "4\x2DCylinder\x20DOHC\x2016V\x20VVT", "exteriorColor": "Crystal\x20Black\x20Silica", "features": [], "fuelType": "Gasoline", "highwayFuelEfficiency": "32", "interiorColor": "Saddle\x20Brown", "internetPrice": "29988", "inventoryType": "used", "make": "Subaru", "model": "Forester", "modelCode": "HFJ", "modelYear": "2017", "msrp": "34991", "newOrUsed": "used", "odometer": "4540", "optionCodes": "", "packages": [], "status": "Live", "stockNumber": "P3419", "transmission": "Lineartronic\x20CVT", "trim": "2.5i\x20Touring", "uuid": "01d913760a0e0ae77e83f024ad945a4e", "vin": "JF2SJAWC0HH808053"
-    }
-    , {
-        "accountId": "puentehillssubarucityofindustrysoa", "address": {
-            "address1": "17801 E Gale Ave", "address2": "", "city": "City of Industry", "postalCode": "91748", "state": "CA", "country": "US"
-        }
-        , "bodyStyle": "SUV", "certified": "true", "cityFuelEfficiency": "23", "classification": "primary", "driveLine": "AWD", "doors": "4 door", "engine": "4\x2DCylinder\x20DOHC\x2016V\x20Turbocharged\x20Intercooled", "exteriorColor": "Bronze", "features": [], "fuelType": "Gasoline", "highwayFuelEfficiency": "27", "interiorColor": "Saddle\x20Brown", "internetPrice": "31988", "inventoryType": "used", "make": "Subaru", "model": "Forester", "modelCode": "HFN", "modelYear": "2017", "msrp": "34991", "newOrUsed": "used", "odometer": "10354", "optionCodes": "", "packages": [], "status": "Live", "stockNumber": "S12388A", "transmission": "Lineartronic\x20CVT", "trim": "2.0XT\x20Touring", "uuid": "b3310ee60a0e0a6b11c085ef19f90a0e", "vin": "JF2SJGTC8HH540165"
-    }
-    ];
-    // This is populated in the widget.js
-    DDC.dataLayer.myCars= {
-        savedVehicles: [], viewedVehicles: [], priceChangeVehicles: []
-    }
-    ;
-    DDC.dataLayer['confirmation']= {
-        "apptTime": "", "customFormId": "", "elapsedTime": "", "element": "", "email": "d41d8cd98f00b204e9800998ecf8427e", "firstName": "d41d8cd98f00b204e9800998ecf8427e", "formEventId": "", "formTitle": "", "isModal": "", "lastName": "d41d8cd98f00b204e9800998ecf8427e", "modalContainer": "", "phone": "d41d8cd98f00b204e9800998ecf8427e", "preferredContact": "", "trackingId": "", "tradeinMake": "", "tradeinModel": "", "tradeinVin": "", "tradeinYear": "", "uuid": "", "validate": "", "zip": "" || ""
-    }
-    ;
-    // this takes in the object and returns all string null as object null
-    var stripNullStrings=function(obj) {
-        for (var property in obj) {
-            if (obj.hasOwnProperty(property)) {
-                var val=obj[property];
-                if (typeof val==="object") {
-                    stripNullStrings(val);
-                }
-                else {
-                    var checkdVal=((val==="null")||(val==="") ? null: val);
-                    obj[property]=checkdVal;
-                }
-            }
-        }
-    }
-    stripNullStrings(DDC.dataLayer);
+<script type="text/javascript">
+(function(DDC){
+DDC = DDC || {};
+DDC.dataLayer = DDC.dataLayer || {};
+DDC.dataLayer['client'] = {};
+DDC.dataLayer['user'] = {
+"userPostalCode": "null",
+"userCity": "",
+"userCountry": "",
+"userRegion": "",
+"userTimezoneId": "",
+"userAreaCode": "",
+"userLatitude": "",
+"userLongitude": "",
+"userMetroCode": "",
+"sessionId": "mockSessionId"
+};
+DDC.dataLayer['date'] = {};
+DDC.dataLayer['site'] =  {
+design: {
+"variationId": "v9_OEM_SUBARU_0002_V1",
+"themekit": "BLUE_WHITE"
+},
+features: {
+drEnable: true,
+enableMyCars: true,
+enableMyCarsOnVLP: true,
+enableMyCarsOnVDP: true,
+enableSEOURLs: false,
+digitalRetailing: {
+"enabled": true,
+"tools": {
+"trade": {
+"type": "default"
+},
+"payment": {
+"type": "default"
+},
+"prequal": {
+"type": "default"
+},
+"finance": {
+"type": "default"
+},
+"protect": {
+"type": "default"
+}                                                                                       }
+},
+promotions: {
+"enabled": false
 }
-
-)(window.DDC);
+},
+franchises: [
+"subaru"                                        ],
+profiles: [
+"subaruprofile"                                 ],
+siteInfo: {
+"dealerId": "puentehillssubarucityofindustrysoa",
+"domain": "puentehillssubaru.com",
+"siteProvider": "Dealertrack",
+"tier": "tier3"
+}
+};
+DDC.dataLayer.page = DDC.dataLayer.page || {}
+DDC.dataLayer.page.queryFacets = {
+"make" : "Subaru",
+"model" : "Forester",
+},
+DDC.dataLayer.page.pageInfo = {
+"pageId": "puentehillssubarucityofindustrysoa_SITEBUILDER_INVENTORY_LISTING_DEFAULT_AUTO_USED_V3_1",
+"pageName": "INVENTORY_LISTING_DEFAULT_AUTO_USED",
+"pagePath": "\x2Fused\x2Dinventory\x2Findex.htm",
+"pageUrl": "http\x3A\x2F\x2Fwww.puentehillssubaru.com\x2Fused\x2Dinventory\x2Findex.htm",
+"params": "model\x3DForester\x26sortBy\x3DinternetPrice\x20asc\x26make\x3DSubaru",
+"pageWidgets": ["v9.widgets.slideshow.default.v1","v9.widgets.content.default.v1","v9.widgets.inventory-listing.default.v2","v9.widgets.content.default.v1","v9.widgets.content.disclaimer.v1","TemplateFragmentInclude","v9.widgets.content.page-title.v1","TemplateContent","v9.widgets.include.velocity.v1","TemplateFragmentInclude","v9.widgets.design.css-switcher.v1","TemplateFragmentInclude","TemplateFragmentInclude","TemplateFragmentInclude"],
+"isVlp": true,
+"isVdp": false,
+"isShowroomOverview": false,
+"hasLeadForm": false,
+"isConfirm": false
+};
+DDC.dataLayer.page.attributes = {
+"layoutType": (false) ? "mobile" : "desktop",
+"locale": "en_US",
+// getting vehicle page results
+"incentivesCountPerDetailsPage": "",
+"incentivesDetailCategory": "",
+"vehicleCountPerPage": "35",
+"vehicleCurrentPage": "1",
+"vehicleResultCount": "4",
+"vehicleListingPageSort": "internetPrice\x20asc",
+"vehicleListingPageViews": "1",
+"vehicleDetailsPageViews": "",
+"vehicleDetailsNewPageViews": "",
+"vehicleDetailsUsedPageViews": "",
+"specialsCategory": "",
+};
+DDC.dataLayer['dealership'] = {
+"address1": "17801\x20E\x20Gale\x20Ave",
+"address2": "",
+"city": "City\x20of\x20Industry",
+"country": "US",
+"dealerCode":[{"autocheck":"5053944"}, {"dealertrack-post":"puentehillssubarucit"}, {"soa":"400106"}, {"dtid":"9660"}, {"soazone":"SOA_080_04_WST_LAX"}, {"soadistrict":"SOA_080_04_WST_LAX_02"}, {"dt-dr-profile":"puentehillssubarucit"}, {"soaregion":"SOA_080_WST"}, {"at-kbb":"65658179"} ],
+"dealershipName": "Puente\x20Hills\x20Subaru",
+"dealerContactFirstName": "",
+"dealerContactLastName": "",
+"postalCode": "91748",
+"stateProvince": "CA",
+"phone1": "\x28888\x29\x20450\x2D8814",
+"email": "john\x40puentehillssubaru.com",
+"website": "http\x3A\x2F\x2Fwww.puentehillssubaru.com"
+};
+DDC.dataLayer['vehicles'] = [
+{
+"accountId": "puentehillssubarucityofindustrysoa",
+"address": {"address1":"17801 E Gale Ave","address2":"","city":"City of Industry","postalCode":"91748","state":"CA","country":"US"},
+"bodyStyle": "SUV",
+"certified": "false",
+"cityFuelEfficiency": "23",
+"classification": "primary",
+"driveLine": "AWD",
+"doors": "4 door",
+"engine": "4\x2DCylinder\x20DOHC\x2016V\x20Turbocharged\x20Intercooled",
+"exteriorColor": "Black",
+"features": [],
+"fuelType": "Gasoline",
+"highwayFuelEfficiency": "28",
+"interiorColor": "Black",
+"internetPrice": "21500",
+"inventoryType": "used",
+"make": "Subaru",
+"model": "Forester",
+"modelCode": "FFM",
+"modelYear": "2015",
+"msrp": "26991",
+"newOrUsed": "used",
+"odometer": "30407",
+"optionCodes": "",
+"packages": [],
+"status": "Live",
+"stockNumber": "P3450",
+"transmission": "Lineartronic\x20CVT",
+"trim": "2.0XT\x20Premium",
+"uuid" : "5d056a420a0e0ae87f1e702543c8b409",
+"vin": "JF2SJGDC9FH552451"
+}
+,
+{
+"accountId": "puentehillssubarucityofindustrysoa",
+"address": {"address1":"17801 E Gale Ave","address2":"","city":"City of Industry","postalCode":"91748","state":"CA","country":"US"},
+"bodyStyle": "SUV",
+"certified": "true",
+"cityFuelEfficiency": "24",
+"classification": "primary",
+"driveLine": "AWD",
+"doors": "4 door",
+"engine": "4\x2DCylinder\x20DOHC\x2016V\x20VVT",
+"exteriorColor": "White",
+"features": [],
+"fuelType": "Gasoline",
+"highwayFuelEfficiency": "32",
+"interiorColor": "Gray",
+"internetPrice": "21988",
+"inventoryType": "used",
+"make": "Subaru",
+"model": "Forester",
+"modelCode": "FFF",
+"modelYear": "2015",
+"msrp": "24991",
+"newOrUsed": "used",
+"odometer": "33895",
+"optionCodes": "",
+"packages": [],
+"status": "Live",
+"stockNumber": "P3475",
+"transmission": "Lineartronic\x20CVT",
+"trim": "2.5i\x20Premium",
+"uuid" : "71a4924e0a0e0a170ad749958ead118e",
+"vin": "JF2SJADC6FH569690"
+}
+,
+{
+"accountId": "puentehillssubarucityofindustrysoa",
+"address": {"address1":"17801 E Gale Ave","address2":"","city":"City of Industry","postalCode":"91748","state":"CA","country":"US"},
+"bodyStyle": "SUV",
+"certified": "true",
+"cityFuelEfficiency": "26",
+"classification": "primary",
+"driveLine": "AWD",
+"doors": "4 door",
+"engine": "4\x2DCylinder\x20DOHC\x2016V\x20VVT",
+"exteriorColor": "Crystal\x20Black\x20Silica",
+"features": [],
+"fuelType": "Gasoline",
+"highwayFuelEfficiency": "32",
+"interiorColor": "Saddle\x20Brown",
+"internetPrice": "29988",
+"inventoryType": "used",
+"make": "Subaru",
+"model": "Forester",
+"modelCode": "HFJ",
+"modelYear": "2017",
+"msrp": "34991",
+"newOrUsed": "used",
+"odometer": "4540",
+"optionCodes": "",
+"packages": [],
+"status": "Live",
+"stockNumber": "P3419",
+"transmission": "Lineartronic\x20CVT",
+"trim": "2.5i\x20Touring",
+"uuid" : "01d913760a0e0ae77e83f024ad945a4e",
+"vin": "JF2SJAWC0HH808053"
+}
+,
+{
+"accountId": "puentehillssubarucityofindustrysoa",
+"address": {"address1":"17801 E Gale Ave","address2":"","city":"City of Industry","postalCode":"91748","state":"CA","country":"US"},
+"bodyStyle": "SUV",
+"certified": "true",
+"cityFuelEfficiency": "23",
+"classification": "primary",
+"driveLine": "AWD",
+"doors": "4 door",
+"engine": "4\x2DCylinder\x20DOHC\x2016V\x20Turbocharged\x20Intercooled",
+"exteriorColor": "Bronze",
+"features": [],
+"fuelType": "Gasoline",
+"highwayFuelEfficiency": "27",
+"interiorColor": "Saddle\x20Brown",
+"internetPrice": "31988",
+"inventoryType": "used",
+"make": "Subaru",
+"model": "Forester",
+"modelCode": "HFN",
+"modelYear": "2017",
+"msrp": "34991",
+"newOrUsed": "used",
+"odometer": "10354",
+"optionCodes": "",
+"packages": [],
+"status": "Live",
+"stockNumber": "S12388A",
+"transmission": "Lineartronic\x20CVT",
+"trim": "2.0XT\x20Touring",
+"uuid" : "b3310ee60a0e0a6b11c085ef19f90a0e",
+"vin": "JF2SJGTC8HH540165"
+}
+];
+// This is populated in the widget.js
+DDC.dataLayer.myCars = {
+savedVehicles: [],
+viewedVehicles: [],
+priceChangeVehicles: []
+};
+DDC.dataLayer['confirmation'] = {
+"apptTime":         "",
+"customFormId":     "",
+"elapsedTime":      "",
+"element":          "",
+"email":            "d41d8cd98f00b204e9800998ecf8427e",
+"firstName":        "d41d8cd98f00b204e9800998ecf8427e",
+"formEventId":          "",
+"formTitle":        "",
+"isModal":          "",
+"lastName":         "d41d8cd98f00b204e9800998ecf8427e",
+"modalContainer":   "",
+"phone":            "d41d8cd98f00b204e9800998ecf8427e",
+"preferredContact": "",
+"trackingId":       "",
+"tradeinMake":      "",
+"tradeinModel":     "",
+"tradeinVin":       "",
+"tradeinYear":      "",
+"uuid":             "",
+"validate":         "",
+"zip":              "" || ""
+};
+// this takes in the object and returns all string null as object null
+var stripNullStrings = function(obj){
+for (var property in obj) {
+if (obj.hasOwnProperty(property)) {
+var val = obj[property];
+if (typeof val === "object") {
+stripNullStrings(val);
+} else {
+var checkdVal = ((val === "null")||(val === "" ) ? null : val);
+obj[property] = checkdVal;
+}
+}
+}
+}
+stripNullStrings(DDC.dataLayer);
+})(window.DDC);
 </script>
