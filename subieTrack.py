@@ -163,7 +163,27 @@ def get_used_subies(dealer):
             mat_tup = re.findall(r"\{\n((\".*\n)+\})",test_list, re.UNICODE)
             if mat_tup:
                 print("cars:%d\n" % (len(mat_tup)))
-                print(*mat_tup, sep = "\n\n")
+                #print(*mat_tup, sep = "\n\n")
+                
+                cnt1 = 0
+                car_list_in_dealership = []
+                car_list_in_dealership = [i[0] for i in mat_tup]
+
+                print(*car_list_in_dealership, sep = "\n\n")
+
+                for car in car_list_in_dealership:
+                    cnt1 += 1
+                    print("\n\n\n>>>>>>>>>>%d" % cnt1)
+                    #print(car)
+                    car_attribs = re.findall(r"\".*,?",car, re.UNICODE)
+                    if car_attribs:
+                        for itm in car_attribs:
+                            print(car_attribs.index(itm)+1, itm)
+                        # print("len(mat_tup_2):%d\n" % (len(mat_tup_2)))
+                        # print(*mat_tup_2, sep = "\n")
+                    
+
+                    
             
             print("************************************************************")
 
