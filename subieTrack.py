@@ -32,7 +32,7 @@ class Car:
 subieDealerAddr = {}
 subieDealerAddr['fremont'] = "https://www.premiersubaruoffremont.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
 subieDealerAddr['capital'] = "https://www.capitolsubarusj.com/used-inventory/index.htm?make=Subaru&model=Forester&sortBy=internetPrice+asc&"
-dealershipFile = "./dealerships.txt"
+dealershipFile = "./ds_short.txt"
 subieDealer = {}
 
 dealer_list = []
@@ -53,8 +53,8 @@ def main():
     # Get Forester list from dealerships
     for d in dealer_list:
         get_used_subies(d)
-        break
-#    dump_cars_to_csv()
+
+    dump_cars_to_csv()
 
     print("ENDGAME")
  
@@ -127,20 +127,67 @@ def get_used_subies(dealer):
 
     if response is not None:
         html = BeautifulSoup(response, 'html.parser')
+        html_str = str(html)
+
         names = list()
 
         text_file = open("out.txt", "w")
         
         print("DEALER: %s" % dealer.name)
 
+        print("DBGDBG\n")
+        dbgtest = html.findAll("div", attrs={'data-widget-name':'tracking-ddc-data-layer'})
+        dbgtest_str = str(dbgtest)
+       #print("\t%s\n" % dbgtest)
+        print("DBGDBG\n")
+
+        stuff = []
+        test_list = []
+        datalayer = []
+        cnt = 0
+        db = {}
+
+        print(type(dbgtest_str))
+
+        # Get Vehicle datalayer
+        match = re.search(r"DDC.dataLayer\['(\w+)'\]\s+=\s+\[\n?(.*\n)+\];",dbgtest_str, re.UNICODE)
+        mat_tup = ""
+        if match:
+            print("************************************************************")
+            test_list = match.group(0)
+            #print(test_list)
+            #mat_tup = re.search(r"\{\n(.*\n)+(\}\n)",test_list, re.UNICODE)
+            #mat_tup = re.findall(r"\{\n(.*,?\n)+(\}\n)",test_list, re.UNICODE)
+
+            # Grab each car
+            mat_tup = re.findall(r"\{\n((\".*\n)+\})",test_list, re.UNICODE)
+            if mat_tup:
+                print("cars:%d\n" % (len(mat_tup)))
+                print(*mat_tup, sep = "\n\n")
+            
+            print("************************************************************")
+
+        # for item in dbgtest:
+        #     cnt += 1
+        #     #print("%02d:%s\n" % (cnt, item))
+        #     stuff.append(item)
+        #     print(cnt)
+        #     print("%02d:%s\n" % (cnt-1, stuff[cnt-1]))
+
         
-        # pat = 'DDC.dataLayer\[\'vehicles\'\]'
-        for tag in html.select('script'):
-            #text_file.write(">%s<\n" % li)
-            if tag.text.find('function(DDC)') != -1:
-                print (">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-                print (tag.text)
-                print ("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        print("Car Count %d" % carCount)
+        print(len(car_list))
+
+        # Add carlist to 
+        #subieDealer[dealer] = list(car_list)
+        #subieDealer[dealer] = list(car_list)
+        #subieDealer[dealer] = car_list[:]
+        dealer.carlist = car_list[:]
+        del car_list[:]
+
+        return names
+
+    raise Exception('Error retrieving contents at {}'.format(url))
  
 if __name__ == '__main__':
     main()
