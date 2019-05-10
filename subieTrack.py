@@ -120,8 +120,14 @@ def dump_cars_to_csv():
         writer.writerow(list(dealer_list[0].carlist[0].keys()))
         #writer.writerow(("Location","Name","Sale Price", "Mileage","Year","Make","Model","Model Code","Stock Number","VIN","Exterior Color","Interior Color","Transmission"))
         for d in dealer_list:
+            print("dealer_list count: %d" % len(dealer_list))
+            print(d.name)
+            cntr = 0
             for car in d.carlist:
-                #print([car.values()])
+                cntr += 1
+                #print("d.carlist count: %d" % len(d.carlist))
+                print("%03d - %s" % (cntr, car["vin"]))
+                #writer.writerow([cntr,cntr])
                 writer.writerow(list(car.values()))
                 #writer.writerow((d.location,d.name,car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
 
@@ -235,6 +241,7 @@ def get_used_subies(dealer):
         dealer.carlist = list_of_car_dicts[:]
         print("dealer.carlist length = %d" % len(dealer.carlist))
         del car_list[:]
+        del list_of_car_dicts[:]
 
         return names
 
