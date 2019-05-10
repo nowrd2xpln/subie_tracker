@@ -37,6 +37,10 @@ subieDealer = {}
 
 dealer_list = []
 car_list = list()
+car_dict = {}
+list_of_car_dicts = []
+dealership_dict = {}
+car_total_cnt = 0
 
 def main():
     print('Get subies!')
@@ -111,10 +115,15 @@ def dump_cars_to_csv():
         #for dealer in subieDealerAddr:
         #    for car in subieDealer[dealer]:
         #        writer.writerow((car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
-        writer.writerow(("Location","Name","Sale Price", "Mileage","Year","Make","Model","Model Code","Stock Number","VIN","Exterior Color","Interior Color","Transmission"))
+        print(type(dealer_list[0].carlist[0]["vin"]))
+        print(dealer_list[0].carlist[0]["vin"])
+        writer.writerow(list(dealer_list[0].carlist[0].keys()))
+        #writer.writerow(("Location","Name","Sale Price", "Mileage","Year","Make","Model","Model Code","Stock Number","VIN","Exterior Color","Interior Color","Transmission"))
         for d in dealer_list:
             for car in d.carlist:
-                writer.writerow((d.location,d.name,car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
+                #print([car.values()])
+                writer.writerow(list(car.values()))
+                #writer.writerow((d.location,d.name,car.salePrice, car.mileage,car.year,car.make,car.model,car.modelCode,car.stockNum,car.vin,car.extColor,car.intColor,car.transmission))
 
 def get_used_subies(dealer):
     #response = simple_get('https://www.capitolsubarusj.com/used-inventory/index.htm?compositeType=&year=&make=Subaru&model=Forester&trim=&bodyStyle=&driveLine=&internetPrice=&saveFacetState=true&lastFacetInteracted=inventory-listing1-facet-anchor-model-1')
@@ -145,6 +154,7 @@ def get_used_subies(dealer):
         test_list = []
         datalayer = []
         cnt = 0
+        cnt1 = 0
         db = {}
 
         print(type(dbgtest_str))
@@ -161,26 +171,42 @@ def get_used_subies(dealer):
 
             # Grab each car
             mat_tup = re.findall(r"\{\n((\".*\n)+\})",test_list, re.UNICODE)
+            
             if mat_tup:
                 print("cars:%d\n" % (len(mat_tup)))
                 #print(*mat_tup, sep = "\n\n")
                 
-                cnt1 = 0
+                
                 car_list_in_dealership = []
                 car_list_in_dealership = [i[0] for i in mat_tup]
 
-                print(*car_list_in_dealership, sep = "\n\n")
+                # DBG print raw text data
+                # print(*car_list_in_dealership, sep = "\n\n")
 
                 for car in car_list_in_dealership:
                     cnt1 += 1
-                    print("\n\n\n>>>>>>>>>>%d" % cnt1)
+                    print("\n\nCAR #%02d" % cnt1)
                     #print(car)
                     car_attribs = re.findall(r"\".*,?",car, re.UNICODE)
                     if car_attribs:
                         for itm in car_attribs:
-                            print(car_attribs.index(itm)+1, itm)
-                        # print("len(mat_tup_2):%d\n" % (len(mat_tup_2)))
-                        # print(*mat_tup_2, sep = "\n")
+                            #print("%d - %s" % (car_attribs.index(itm)+1, itm))
+                            # Parse attributes and put into dict
+                            something = re.search(r"\"(\w+)\"\s?:\s*([\"\[]?([\w\\\.]*)[\"\]]?),?", itm)
+                            
+                            attr = something.group(1)
+                            val = something.group(3)
+                            #print("a:%s - b:%s\n" % (attr, val))
+                            car_dict[attr] = val
+                            #print("l:%s - r:%s\n" % (attr, car_dict[attr]))
+                            print("%02d - %-23s%s" % (car_attribs.index(itm)+1, attr, car_dict[attr]))
+                        print("%d vin:%s - attribs:%d" % (cnt1, car_dict["vin"], len(car_dict)))
+
+                        # Copy Car to list
+                        list_of_car_dicts.append(car_dict.copy())
+                        dealership_dict[car_dict["accountId"]] = car_dict.copy()
+                        print("accountId:%s" % car_dict["accountId"])
+
                     
 
                     
@@ -195,14 +221,19 @@ def get_used_subies(dealer):
         #     print("%02d:%s\n" % (cnt-1, stuff[cnt-1]))
 
         
-        print("Car Count %d" % carCount)
+        global car_total_cnt
+        car_total_cnt += cnt1
+        print("Car Count %d" % cnt1)
         print(len(car_list))
+        print("total Car Count %d" % car_total_cnt)
 
         # Add carlist to 
         #subieDealer[dealer] = list(car_list)
         #subieDealer[dealer] = list(car_list)
         #subieDealer[dealer] = car_list[:]
-        dealer.carlist = car_list[:]
+
+        dealer.carlist = list_of_car_dicts[:]
+        print("dealer.carlist length = %d" % len(dealer.carlist))
         del car_list[:]
 
         return names
